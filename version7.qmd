@@ -5,13 +5,22 @@ author: "Patrick Lefler"
 date: February 4, 2026
 format: 
   html:
-    toc: true
-    theme: sandstone
-    code-fold: true
-    embed-resources: true
+     code-fold: true
+     code-line-numbers: false
+     code-overflow: wrap
+     code-summary: "Display code"
+     code-tools: true
+     df-print: paged
+     embed-resources: true
+     embed-math: true
+     linkcolor: "#0000EE"
+     page-layout: full
+     theme: sandstone
+     toc: true
+     toc-depth: 3
 execute:
-  warning: false
-  message: false
+     message: false
+     warning: false
 ---
 
 ```{r}
@@ -79,11 +88,9 @@ attritionData <- raw_data %>%
                   
 ```
 
-## Strategic Attrition Analytics for Consumer Credit
-
 This project provides a comprehensive data science framework for identifying, analyzing, and predicting customer attrition within a consumer credit card division. By leveraging a historic dataset of over 10,000 records, this analysis moves beyond descriptive reporting to deliver actionable risk intelligence and tactical insights.
 
-Data Source & Composition The underlying data is sourced from the Kaggle Credit Card Customers dataset. It contains anonymized profiles of both current and former clients, blending two distinct data categories:
+The underlying data is sourced from the Kaggle Credit Card Customers dataset that can be accessed [here](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers). It contains anonymized profiles of both current and former clients, blending two distinct data categories:
 
 * Demographics: Detailed attributes including age, gender, marital status, income category, and education level.
 
@@ -91,7 +98,7 @@ Data Source & Composition The underlying data is sourced from the Kaggle Credit 
 
 Within this population, customer churn (represented by former bank customers) accounts for approximately 16% of the total dataset, providing a robust sample for predictive modeling and behavioral analysis.
 
-Project Objectives The primary goal of this analysis is to transform raw data into a proactive retention strategy through four key methodologies:
+The primary goal of this analysis is to transform raw data into a proactive retention strategy through four key methodologies:
 
 * Identify Drivers: Utilizing Logistic Regression to isolate specific "Risk Multipliers"—the behavioral factors that significantly increase the likelihood of account closure.
 
