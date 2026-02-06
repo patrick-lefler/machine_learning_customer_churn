@@ -88,15 +88,15 @@ attritionData <- raw_data %>%
                   
 ```
 
-This project provides a comprehensive data science framework for identifying, analyzing, and predicting customer attrition within a consumer credit card division. By leveraging a historic dataset of over 10,000 records, this analysis moves beyond descriptive reporting to deliver actionable risk intelligence and tactical insights.
+This project provides a comprehensive data science framework for identifying, analyzing, and predicting customer attrition within a consumer credit card division. By leveraging a historic data set of over 10,000 records, this analysis moves beyond descriptive reporting to deliver actionable risk intelligence and tactical insights.
 
-The underlying data is sourced from the Kaggle Credit Card Customers dataset that can be accessed [here](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers). It contains anonymized profiles of both current and former clients, blending two distinct data categories:
+The underlying data is sourced from the Kaggle Credit Card Customers data set that can be accessed [here](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers). It contains anonymized profiles of both current and former clients, blending two distinct data categories:
 
 * Demographics: Detailed attributes including age, gender, marital status, income category, and education level.
 
 * Account Behavior: Performance metrics such as credit limits, revolving balances, transaction frequency, and bank-initiated communication logs.
 
-Within this population, customer churn (represented by former bank customers) accounts for approximately 16% of the total dataset, providing a robust sample for predictive modeling and behavioral analysis.
+Within this population, customer churn (represented by former bank customers) accounts for approximately 16% of the total data set, providing a robust sample for predictive modeling and behavioral analysis.
 
 The primary goal of this analysis is to transform raw data into a proactive retention strategy through four key methodologies:
 
@@ -286,7 +286,7 @@ plotEducation <- ggplot(attritionData, aes(x = education.level, fill = churn)) +
 
 ## Identifying the "Why" with Risk Multipliers
 
-To move beyond simple charts, Logistic regression is utilized to calculate the Risk Multiplier (mathematically, the "exponentiated coefficient"). This multiplier is calculated by taking the raw statistical weights and transforming them into a scale that represents the "Odds of Churn."
+To move beyond simple charts, Logistic regression is utilized to calculate the Risk Multiplier (mathematically, the "exponentiatal coefficient"). This multiplier is calculated by taking the raw statistical weights and transforming them into a scale that represents the "Odds of Churn."
 
 How to Interpret the Numbers:
 
@@ -303,7 +303,7 @@ In this updated view, all variables in the model are included to provide a compl
 
 #| label: drivers-table
 
-# Fit logistic regression including 'all' significant drivers from the dataset
+# Fit logistic regression including 'all' significant drivers from the data set
 logit_model <- logistic_reg() %>%
   set_engine("glm") %>%
   fit(churn ~ . - client.id - attrition.flag, data = attritionData)
@@ -479,7 +479,7 @@ scroll_box(width = "100%", height = "500px")
 
 ::: {.callout-note icon = false}
 ## Visualizing Customer Life Expectancy
-This final section uses survival analysis to map the customer lifecycle. Sudden drops in this curve indicate risk milestones - specific anniversary dates where customers are statistically most likely to reconsider their relationship with the bank. In this case, there appears to be a significant drop-off in customer retention at the three-year point. Perhaps this could be caused by new customers being offered three years of below-market financing, or other inducements. It's certainly a good place to start further investigation. 
+This final section uses survival analysis to map the customer life cycle. Sudden drops in this curve indicate risk milestones - specific anniversary dates where customers are statistically most likely to reconsider their relationship with the bank. In this case, there appears to be a significant drop-off in customer retention at the three-year point. Perhaps this could be caused by new customers being offered three years of below-market financing, or other inducements. It's certainly a good place to start further investigation. 
 
 :::
 
