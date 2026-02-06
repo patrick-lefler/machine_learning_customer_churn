@@ -79,26 +79,28 @@ attritionData <- raw_data %>%
                   
 ```
 
-## Examining the Data
+## Strategic Attrition Analytics for Consumer Credit
 
-::: {.callout-note icon = false}
-## Kaggle Synthetic Data
+This project provides a comprehensive data science framework for identifying, analyzing, and predicting customer attrition within a consumer credit card division. By leveraging a historic dataset of over 10,000 records, this analysis moves beyond descriptive reporting to deliver actionable risk intelligence and tactical insights.
 
-The dataset utilized in this analysis comes from Kaggle: https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers
+Data Source & Composition The underlying data is sourced from the Kaggle Credit Card Customers dataset. It contains anonymized profiles of both current and former clients, blending two distinct data categories:
 
-This comprehensive data science project aimed at identifying, analyzing, and predicting customer attrition within a consumer credit card division. Leveraging a dataset of over 10,000 historic records, the project moves beyond basic reporting to provide actionable risk intelligence.
+* Demographics: Detailed attributes including age, gender, marital status, income category, and education level.
 
-The dataset consists of anonymized customer data for current and former credit card customers, and includes both demographic data (gender, age, marital status, income, education) and account data (credit limit, revolving balance, transaction information, communication with bank information, etc.). Customer churn (former bank customers) accounts for about 16% of the dataset. 
+* Account Behavior: Performance metrics such as credit limits, revolving balances, transaction frequency, and bank-initiated communication logs.
 
-The goals of the project:
+Within this population, customer churn (represented by former bank customers) accounts for approximately 16% of the total dataset, providing a robust sample for predictive modeling and behavioral analysis.
 
-* Identify Drivers: Use Logistic Regression to isolate the "Risk Multipliers" that lead to account closure.
-* Predict Risk: Deploy a Random Forest machine learning model to score existing customers on their probability of churn.
-* Analyze Lifecycle: Utilize Survival Analysis to map the "Customer Life Expectancy" and identify critical tenure milestones.
-* Tactical Action: Create a prioritized outreach list of at-risk active customers.
+Project Objectives The primary goal of this analysis is to transform raw data into a proactive retention strategy through four key methodologies:
 
+* Identify Drivers: Utilizing Logistic Regression to isolate specific "Risk Multipliers"—the behavioral factors that significantly increase the likelihood of account closure.
 
-:::
+* Predict Risk: Deploying a Random Forest machine learning model to assign an individualized churn probability score to every existing customer.
+
+* Analyze Lifecycle: Implementing Survival Analysis to map "Customer Life Expectancy," allowing the bank to identify critical tenure milestones where the risk of departure is highest.
+
+* Tactical Action: Generating a prioritized outreach list of at-risk, active customers, enabling the retention team to focus resources where they will have the highest impact.
+
 
 ```{r}
 
@@ -495,8 +497,8 @@ ggsurvplot(fit_km,
 
 ## Key Findings
 
-The analysis of over 10,000 customer records confirms that attrition in the consumer credit card division is rarely a sudden event, but rather a slow behavioral drift. By utilizing a random forest model, the strongest predictors of churn that have been predicted are not demographic markers like age or income, but rather a sharp decline in "transaction velocity and average utilization. When a customer's total transaction count drops or they cease maintaining a revolving balance, they may be signaling their intent to depart months before the account is actually closed. 
+Analysis of more than 10,000 customer records confirms that attrition within the consumer credit card division is rarely a sudden event; rather, it is characterized by a gradual "behavioral drift." By leveraging a Random Forest model, the identified primary predictors of churn are not demographic markers—such as age or income—but rather, are caused by other factors including declines in transaction velocity and average utilization. When a customer’s total transaction count drops or they cease maintaining a revolving balance, they may be signaling an intent to depart months before the account is formally closed.
 
-Additionally, survival analysis identified a critical "tenure risk" at the 36-month milestone. This suggests that as customers reach their third anniversary with the bank, the initial product appeal or promotional incentives may be losing their efficacy. To mitigate this, a structural shift in the Customer Lifecycle Management process might be valuable - implementing automated stay-active incentives and product reviews specifically timed for this 3-year window.
+Furthermore, survival analysis identified a critical "tenure risk" at the 36-month milestone. This suggests that as customers reach their third anniversary with the bank, initial product appeals or promotional incentives often lose their efficacy. To mitigate this risk, a structural shift in the Customer Lifecycle Management process may be needed; specifically, the implementation of automated stay-active incentives and product reviews timed for this three-year window.
 
-This project only scratches the surface of how machine learing and logistic regression can help solve these types of challenges in the credit and risk markets.
+This project represents only a starting point in demonstrating how machine learning and logistic regression can solve complex challenges within the credit and risk markets. By transforming data into proactive intelligence, institutions can intervene earlier and preserve valuable customer relationships.
